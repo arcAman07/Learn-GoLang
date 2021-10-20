@@ -6,7 +6,7 @@ import (
 
 func main() {
 	x := 0
-	fmt.Println("x befor", &x)
+	fmt.Println("x before", &x)
 	fmt.Println("x befor", x)
 	foo(&x)
 	fmt.Println("x after", &x)
