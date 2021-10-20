@@ -12,7 +12,7 @@ func main() {
 		fmt.Println("")
 		for a, b := range v {
 			fmt.Printf("\t")
-			fmt.Println(a, b)
+			fmt.Println(a+1, b)
 		}
 	}
 }
