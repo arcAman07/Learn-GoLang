@@ -15,7 +15,7 @@ func main() {
 
 func foo(y *int) {
 	fmt.Println("y before", y)
-	fmt.Println("y befor", *y)
+	fmt.Println("y before", *y)
 	*y = 43
 	fmt.Println("y after", y)
 	fmt.Println("y after", *y)
