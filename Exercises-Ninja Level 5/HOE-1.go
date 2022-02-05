@@ -16,7 +16,7 @@ func main() {
 		last:"Sharma",
 		iceCream:[]string{"blackberry","mango","coconut"},
 	}
-	fmt.Printf("The favourite Ice-Cream flavours of %v %v are ",x.first,x.last)
+	fmt.Printf("The favourite Ice-Cream flavours of %v %v are ",x.first,y.last)
 	fmt.Println(" ")
 
 	for i,v:=range x.iceCream {
