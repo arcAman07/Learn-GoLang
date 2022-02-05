@@ -24,7 +24,7 @@ func main() {
 		fmt.Println(" ")
 
 	}
-	fmt.Printf("The favourite Ice-Cream flavours of %v %v are ",x.first,x.last)
+	fmt.Printf("The favourite Ice-Cream flavours of %v %v are ",y.first,x.last)
 	fmt.Println(" ")
 	for a,b:=range y.iceCream {
 		fmt.Printf("%v)%v",a+1,b)
