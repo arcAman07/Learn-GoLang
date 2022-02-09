@@ -1,82 +1,37 @@
 package main
-
 import (
 	"fmt"
+	"math"
 )
-
-type person struct {
-	first string
-	last  string
+type circle struct {
+	radius float64
 }
-
-type secretAgent struct {
-	person
-	ltk bool
+type square struct {
+	side float64
 }
-
-func (s secretAgent) speak() {
-	fmt.Println("I am", s.first, s.last, " - the secretAgent speak")
+type rectangle struct {
+	length, width float64
 }
-
-func (p person) speak() {
-	fmt.Println("I am", p.first, p.last, " - the person speak")
+func (c circle) area() float64 {
+	return math.Pi * c.radius * c.radius
 }
-
-type human interface {
-	speak()
+func (s square) area() float64 {
+	return s.side * s.side
 }
-
-func bar(h human) {
-	switch h.(type) {
-	case person:
-		fmt.Println("I was passed into barrrrrr", h.(person).first)
-	case secretAgent:
-		fmt.Println("I was passed into barrrrrr", h.(secretAgent).first)
-	}
-	fmt.Println("I was passed into bar", h)
+func (r rectangle) area() float64 {
+	return r.length * r.width
 }
-
-type hotdog int
-
+type shape interface {
+	area() float64
+}
+func info(s shape) {
+	fmt.Println("Area:", s.area())
+}
 func main() {
-	sa1 := secretAgent{
-		person: person{
-			"James",
-			"Bond",
-		},
-		ltk: true,
-	}
-
-	sa2 := secretAgent{
-		person: person{
-			"Miss",
-			"Moneypenny",
-		},
-		ltk: true,
-	}
-
-	p1 := person{
-		first: "Dr.",
-		last:  "Yes",
-	}
-
-	fmt.Println(sa1)
-	sa1.speak()
-	sa2.speak()
-
-	fmt.Println(p1)
-
-	bar(sa1)
-	bar(sa2)
-	bar(p1)
-
-	// conversion
-	var x hotdog = 42
-	fmt.Println(x)
-	fmt.Printf("%T\n", x)
-	var y int
-	y = int(x)
-	fmt.Println(y)
-	fmt.Printf("%T\n", y)
-
+	c := circle{radius: 5}
+	s := square{side: 5}
+	r := rectangle{length: 5, width: 10}
+	info(c)
+	info(s)
+	info(r)
 }
